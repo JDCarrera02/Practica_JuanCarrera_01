@@ -13,7 +13,6 @@ class DashBoardMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = DashBoardMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,6 +25,20 @@ class DashBoardMain : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        binding.contenedorSuperHeroes.setOnClickListener {
+            val intent = Intent(this, SuperHeroes::class.java)
+
+            startActivity(intent)
+        }
+
+        // Funcionalidad del boton LogOut (es como ir hacia atras)
+        binding.contenedorLogOut.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 }

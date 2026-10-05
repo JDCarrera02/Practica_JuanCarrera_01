@@ -3,6 +3,7 @@ package org.iesch.apppractica
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Bundle
 import android.os.Environment
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -11,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.iesch.apppractica.Model.SuperHeroe
+import org.iesch.apppractica.databinding.SuperHeroeMainBinding
 import java.io.File
 import kotlin.jvm.java
 
 class SuperHeroes : AppCompatActivity(){
 
-    private lateinit var binding: SuperHeroesBinding
+    private lateinit var binding: SuperHeroeMainBinding
 
     private lateinit var heroImage: ImageView
 
@@ -36,13 +39,12 @@ class SuperHeroes : AppCompatActivity(){
 
     }
 
-    override fun OnCreate(){
-
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = SuperHeroesBinding.inflate(layoutInflater)
+        binding = SuperHeroeMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainHeroe)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -57,9 +59,9 @@ class SuperHeroes : AppCompatActivity(){
         binding.btnGuardar.setOnClickListener {
             val superHeroName = binding.heroNameEdit.text.toString()
             val alterEgo = binding.alterEgoEdit.text.toString()
-            val bio = binding.alterEgoEdit.text.toString()
+            val bio = binding.bioEdit.text.toString()
             val power = binding.power.rating
-            val superHeroe = SuperHeroe(superHeroName,alterEgo,bio,power)
+            val superHeroe = SuperHeroe(superHeroName, alterEgo, bio, power)
 
             irADetailActivity(superHeroe)
         }
@@ -91,7 +93,7 @@ class SuperHeroes : AppCompatActivity(){
 
     fun irADetailActivity(superHeroe: SuperHeroe) {
         // Creamos el objeto Intent
-        val intent = Intent(this, DetailActivity::class.java)
+        val intent = Intent(this, SuperHeroeDetail::class.java)
         // Añadimos todos los campos con el metodo putExtra
         //intent.putExtra("superHeroName", superHeroName)
         //intent.putExtra("alterEgo", alterEgo)

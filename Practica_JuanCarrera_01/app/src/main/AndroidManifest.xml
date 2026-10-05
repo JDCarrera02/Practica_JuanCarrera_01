@@ -28,6 +28,23 @@
         <activity android:name=".EdadCanina"
             android:exported="false" />
 
+        <activity android:name=".SuperHeroes"
+            android:exported="false" />
+
+        <activity android:name=".SuperHeroeDetail"
+            android:exported="false"/>
+
+        <!-- Para que funcione el Parcelize -->
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+    </provider>
+
 
     </application>
 

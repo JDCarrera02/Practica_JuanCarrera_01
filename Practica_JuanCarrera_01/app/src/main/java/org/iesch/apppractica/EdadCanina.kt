@@ -43,7 +43,6 @@ class EdadCanina: AppCompatActivity() {
                 //println( dogAge )
                 resultText.text = getString(R.string.resultado_texto, dogAge)
             }
-
         }
     }
 }
