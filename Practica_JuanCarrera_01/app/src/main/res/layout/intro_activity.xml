@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:hint="Usuario"
             android:inputType="text"
+            android:textColor="@color/black"
             android:padding="16dp"
             android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>

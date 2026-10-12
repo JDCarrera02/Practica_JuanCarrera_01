@@ -38,7 +38,11 @@ class DashBoardMain : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        // Añadiendo la activity nueva (Quizzes)
+        binding.contenedorQuizzes.setOnClickListener {
+            val intent = Intent(this, QuizMain::class.java)
+            startActivity(intent)
+        }
 
     }
 }

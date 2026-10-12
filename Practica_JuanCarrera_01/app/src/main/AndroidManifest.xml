@@ -21,30 +21,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".DashBoardMain"
+        <activity
+            android:name=".DashBoardMain"
+            android:exported="false" />
+        <activity
+            android:name=".EdadCanina"
+            android:exported="false" />
+        <activity
+            android:name=".SuperHeroes"
+            android:exported="false" />
+        <activity
+            android:name=".SuperHeroeDetail"
             android:exported="false" />
 
-        <activity android:name=".EdadCanina"
+        <activity
+            android:name=".QuizMain"
             android:exported="false" />
-
-        <activity android:name=".SuperHeroes"
+        <activity
+            android:name=".QuizDialog"
             android:exported="false" />
-
-        <activity android:name=".SuperHeroeDetail"
-            android:exported="false"/>
 
         <!-- Para que funcione el Parcelize -->
         <provider
-            android:authorities="${applicationId}.provider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
-    </provider>
-
+                android:resource="@xml/provider_paths" />
+        </provider>
 
     </application>
 
